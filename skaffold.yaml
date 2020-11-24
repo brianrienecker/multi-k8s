@@ -1,0 +1,9 @@
+apiVersion: skaffold/v1beta2
+kind: Config 
+build:
+  local: 
+    push: false 
+  artifacts:
+    - image: brianrienecker/multi-client
+      context: client 
+      
