@@ -6,4 +6,13 @@ build:
   artifacts:
     - image: brianrienecker/multi-client
       context: client 
-      
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        '**/*.js': . 
+        '**/*.cds': .
+        '**/*.html': .
+deploy:
+  kubectl:
+    manifests:
+      - k8s/client-deployment.yaml
